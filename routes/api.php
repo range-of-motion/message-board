@@ -16,3 +16,17 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/threads', function (Request $request) {
+    // TODO VALIDATE
+
+    $thread = new \App\Thread;
+
+    $thread->title = $request->post('title');
+
+    $thread->save();
+
+    event(new \App\Events\ThreadCreated($thread->title));
+
+    return 1;
+});
