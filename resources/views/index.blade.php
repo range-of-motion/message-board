@@ -9,7 +9,7 @@
     <body>
         <div id="app" class="wrapper">
             <composer></composer>
-            <ul class="posts">
+            <ul class="threads">
                 <thread v-for="thread in threads" :title="thread.title"></thread>
                 @foreach ($threads as $thread)
                     <li>
