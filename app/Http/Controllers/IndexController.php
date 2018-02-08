@@ -8,7 +8,10 @@ use App\Thread;
 
 class IndexController extends Controller {
     public function index() {
-        $threads = Thread::orderBy('id', 'DESC')->with('comments')->get();
+        $threads = Thread::orderBy('created_at', 'DESC')
+            ->with(['comments' => function ($query) {
+                $query->orderBy('created_at', 'DESC');
+            }])->get();
 
         return view('index', compact('threads'));
     }
