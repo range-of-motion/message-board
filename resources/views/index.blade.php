@@ -10,10 +10,10 @@
         <div id="app" class="wrapper">
             <composer></composer>
             <ul class="threads">
-                <thread v-for="thread in threads" :title="thread.title"></thread>
+                <thread v-for="thread in threads" :created_at="thread.created_at" :title="thread.title"></thread>
                 @foreach ($threads as $thread)
                     <li>
-                        {{ $thread->title }}
+                        {{ $thread->created_at }} &middot; {{ $thread->title }}
                     </li>
                 @endforeach
             </ul>

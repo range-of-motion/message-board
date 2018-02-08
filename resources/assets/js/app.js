@@ -30,6 +30,7 @@ const app = new Vue({
     created() {
         window.Echo.channel('threads').listen('ThreadCreated', (e) => {
             this.threads.unshift({
+                created_at: e.created_at.date,
                 title: e.title
             })
         })

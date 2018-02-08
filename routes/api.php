@@ -26,7 +26,7 @@ Route::post('/threads', function (Request $request) {
 
     $thread->save();
 
-    event(new \App\Events\ThreadCreated($thread->title));
+    event(new \App\Events\ThreadCreated($thread->created_at, $thread->title));
 
     return 1;
 });

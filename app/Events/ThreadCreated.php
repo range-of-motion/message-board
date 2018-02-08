@@ -15,9 +15,11 @@ use App\Thread;
 class ThreadCreated implements ShouldBroadcast {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $created_at;
     public $title;
 
-    public function __construct($title) {
+    public function __construct($created_at, $title) {
+        $this->created_at = $created_at;
         $this->title = $title;
     }
 
