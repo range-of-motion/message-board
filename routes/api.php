@@ -30,3 +30,18 @@ Route::post('/threads', function (Request $request) {
 
     return 1;
 });
+
+Route::post('/comments', function (Request $request) {
+    // TODO VALIDATE
+
+    $comment = new \App\Comment;
+
+    $comment->thread_id = $request->post('thread');
+    $comment->message = $request->post('message');
+
+    $comment->save();
+
+    event(new \App\Events\CommentCreated($comment->thread->id, $comment->created_at, $comment->message));
+
+    return 1;
+});

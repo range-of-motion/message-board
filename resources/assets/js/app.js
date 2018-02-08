@@ -20,6 +20,7 @@ window.Echo = new Echo({
 Vue.component('threads', require('./components/Threads.vue'));
 Vue.component('thread', require('./components/Thread.vue'));
 Vue.component('composer', require('./components/Composer.vue'));
+Vue.component('comment-composer', require('./components/CommentComposer.vue'));
 
 const app = new Vue({
     el: '#app'
