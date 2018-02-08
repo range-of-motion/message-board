@@ -17,22 +17,10 @@ window.Echo = new Echo({
     encrypted: true
 });
 
+Vue.component('threads', require('./components/Threads.vue'));
 Vue.component('thread', require('./components/Thread.vue'));
 Vue.component('composer', require('./components/Composer.vue'));
 
 const app = new Vue({
-    el: '#app',
-
-    data: {
-        threads: []
-    },
-
-    created() {
-        window.Echo.channel('threads').listen('ThreadCreated', (e) => {
-            this.threads.unshift({
-                created_at: e.created_at.date,
-                title: e.title
-            })
-        })
-    }
+    el: '#app'
 });

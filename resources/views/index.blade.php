@@ -9,21 +9,7 @@
     <body>
         <div id="app" class="wrapper">
             <composer></composer>
-            <ul class="threads">
-                <thread v-for="thread in threads" :created_at="thread.created_at" :title="thread.title"></thread>
-                @foreach ($threads as $thread)
-                    <li>
-                        {{ $thread->created_at }} &middot; {{ $thread->title }}
-                        <ul class="comments">
-                            @foreach ($thread->comments as $comment)
-                                <li>
-                                    {{ $comment->created_at }} &middot; {{ $comment->message }}
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endforeach
-            </ul>
+            <threads v-bind:data='{!! $threads !!}'></threads>
         </div>
         <script src="/js/app.js"></script>
     </body>

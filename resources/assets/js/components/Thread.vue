@@ -1,11 +1,11 @@
 <template>
     <li>
-        {{ created_at }} &middot; {{ title }}
+        {{ thread.created_at }} &middot; {{ thread.title }}
     </li>
 </template>
 
 <script>
     export default {
-        props: ['created_at', 'title']
+        props: ['thread']
     }
 </script>
