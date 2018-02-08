@@ -14,6 +14,13 @@
                 @foreach ($threads as $thread)
                     <li>
                         {{ $thread->created_at }} &middot; {{ $thread->title }}
+                        <ul class="comments">
+                            @foreach ($thread->comments as $comment)
+                                <li>
+                                    {{ $comment->created_at }} &middot; {{ $comment->message }}
+                                </li>
+                            @endforeach
+                        </ul>
                     </li>
                 @endforeach
             </ul>
