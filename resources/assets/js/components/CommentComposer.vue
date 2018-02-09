@@ -4,7 +4,7 @@
             <input v-model="message" />
         </div>
         <div class="column column-tiny ml-2">
-            <button @click="send">Create</button>
+            <button @click="send">New Comment</button>
         </div>
     </div>
 </template>
