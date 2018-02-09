@@ -10,6 +10,30 @@ body {
     background: #F4FAFE;
 }
 
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+}
+
+.column.column-tiny {
+    flex: none;
+}
+
+.mb-2 {
+    margin-bottom: 24px;
+}
+
+.ml-2 {
+    margin-left: 24px;
+}
+
+.mt-2 {
+    margin-top: 24px;
+}
+
 .wrapper {
     margin: 64px auto;
     width: 90%;
@@ -32,7 +56,6 @@ input:focus {
 }
 
 button {
-    margin: 16px 0 32px;
     padding: 12px 24px;
     background: #A7DBFB;
     color: #FFF;

@@ -1,8 +1,12 @@
 <template>
-    <div>
-        <input v-model="title" />
-        <button @click="createThread">Create</button>
-        <i v-if="loading" class="fa fa-circle-o-notch fa-spin" style="margin-left: 4px;"></i>
+    <div class="row mb-2">
+        <div class="column">
+            <input v-model="title" />
+        </div>
+        <div class="column column-tiny ml-2">
+            <button @click="createThread">Create</button>
+            <i v-if="loading" class="fa fa-circle-o-notch fa-spin" style="margin-left: 4px;"></i>
+        </div>
     </div>
 </template>
 
