@@ -9,6 +9,7 @@ class CreateCommentsTable extends Migration {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('ip');
             $table->integer('thread_id')->unsigned();
             $table->string('message');
         });

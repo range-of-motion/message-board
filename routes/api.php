@@ -28,6 +28,7 @@ Route::post('/threads', function (Request $request) {
 
     $thread = new \App\Thread;
 
+    $thread->ip = $request->ip();
     $thread->title = $request->post('title');
 
     $thread->save();
@@ -49,6 +50,7 @@ Route::post('/comments', function (Request $request) {
 
     $comment = new \App\Comment;
 
+    $comment->ip = $request->ip();
     $comment->thread_id = $request->post('thread');
     $comment->message = $request->post('message');
 
