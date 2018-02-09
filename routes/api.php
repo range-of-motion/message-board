@@ -18,7 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/threads', function (Request $request) {
-    // TODO VALIDATE
+    $validator = Validator::make($request->all(), [
+        'title' => 'required|max:10'
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([], 400);
+    }
 
     $thread = new \App\Thread;
 

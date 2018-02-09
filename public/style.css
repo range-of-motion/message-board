@@ -98,3 +98,12 @@ ul.comments li {
     border: 1px solid #23272B;
     border-radius: 4px;
 }
+
+.error {
+    display: block;
+    padding: 12px;
+    background: #EF4B4D;
+    color: #FFF;
+    border-radius: 4px;
+    text-align: center;
+}

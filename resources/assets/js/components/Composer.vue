@@ -1,11 +1,16 @@
 <template>
-    <div class="row mb-2">
-        <div class="column">
-            <input v-model="title" />
+    <div>
+        <div class="row mb-2">
+            <div class="column">
+                <input v-model="title" />
+            </div>
+            <div class="column column-tiny ml-2">
+                <button @click="createThread">Create</button>
+                <i v-if="loading" class="fa fa-circle-o-notch fa-spin" style="margin-left: 4px;"></i>
+            </div>
         </div>
-        <div class="column column-tiny ml-2">
-            <button @click="createThread">Create</button>
-            <i v-if="loading" class="fa fa-circle-o-notch fa-spin" style="margin-left: 4px;"></i>
+        <div class="mb-2" v-if="error">
+            <div class="error">Something went wrong</div>
         </div>
     </div>
 </template>
@@ -15,7 +20,8 @@
         data() {
             return {
                 loading: false,
-                title: ''
+                title: '',
+                error: false
             }
         },
 
@@ -29,10 +35,12 @@
                     this.title = ''
 
                     this.loading = false
-                }).catch(error => {
-                    // Shit's on fire yo
 
+                    this.error = false
+                }).catch(error => {
                     this.loading = false
+
+                    this.error = true
                 })
             }
         }
