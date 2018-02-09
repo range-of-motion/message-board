@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="app" class="wrapper">
-            <composer></composer>
+            <thread-composer></thread-composer>
             <threads v-bind:data='{!! $threads !!}'></threads>
         </div>
         <script src="/js/app.js"></script>
