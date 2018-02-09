@@ -26,9 +26,15 @@ Route::post('/threads', function (Request $request) {
         return response()->json([], 400);
     }
 
+    $ip = $request->ip();
+
+    if (\App\Thread::where('ip', $ip)->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute')))->count() > 0) {
+        return response()->json([], 429);
+    }
+
     $thread = new \App\Thread;
 
-    $thread->ip = $request->ip();
+    $thread->ip = $ip;
     $thread->title = $request->post('title');
 
     $thread->save();
@@ -48,9 +54,15 @@ Route::post('/comments', function (Request $request) {
         return response()->json([], 400);
     }
 
+    $ip = $request->ip();
+
+    if (\App\Comment::where('ip', $ip)->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute')))->count() > 0) {
+        return response()->json([], 429);
+    }
+
     $comment = new \App\Comment;
 
-    $comment->ip = $request->ip();
+    $comment->ip = $ip;
     $comment->thread_id = $request->post('thread');
     $comment->message = $request->post('message');
 
