@@ -17,8 +17,10 @@
         created() {
             window.Echo.channel('threads').listen('ThreadCreated', (e) => {
                 this.threads.unshift({
+                    id: e.id,
                     created_at: e.created_at.date,
-                    title: e.title
+                    title: e.title,
+                    comments: []
                 })
             })
 
