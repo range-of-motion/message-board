@@ -26,7 +26,7 @@
                 this.threads.forEach(thread => {
                     if (thread.id == e.thread) {
                         thread.comments.unshift({
-                            created_at: e.created_at,
+                            created_at: e.created_at.date,
                             message: e.message
                         });
                     }
