@@ -1,10 +1,15 @@
 <template>
-    <div class="row mt-2">
-        <div class="column">
-            <input v-model="message" />
+    <div>
+        <div class="row mt-2">
+            <div class="column">
+                <input v-model="message" />
+            </div>
+            <div class="column column-tiny ml-2">
+                <button @click="send">New Comment</button>
+            </div>
         </div>
-        <div class="column column-tiny ml-2">
-            <button @click="send">New Comment</button>
+        <div class="mt-2" v-if="error">
+            <div class="error">Something went wrong</div>
         </div>
     </div>
 </template>
@@ -15,7 +20,8 @@
 
         data() {
             return {
-                message: ''
+                message: '',
+                error: false
             }
         },
 
@@ -26,8 +32,10 @@
                     message: this.message
                 }).then(response => {
                     this.message = ''
+
+                    this.error = false
                 }).catch(error => {
-                    // Shit's on fire yo
+                    this.error = true
                 })
             }
         }

@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/threads', function (Request $request) {
     $validator = Validator::make($request->all(), [
-        'title' => 'required|max:10'
+        'title' => 'required|max:255'
     ]);
 
     if ($validator->fails()) {
@@ -38,7 +38,14 @@ Route::post('/threads', function (Request $request) {
 });
 
 Route::post('/comments', function (Request $request) {
-    // TODO VALIDATE
+    $validator = Validator::make($request->all(), [
+        'thread' => 'required|exists:threads,id',
+        'message' => 'required|max:255'
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([], 400);
+    }
 
     $comment = new \App\Comment;
 
