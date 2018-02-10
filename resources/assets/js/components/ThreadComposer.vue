@@ -2,7 +2,7 @@
     <div>
         <div class="row mb-2">
             <div class="column">
-                <input v-model="title" />
+                <input v-model="title" @keyup.enter="createThread" />
             </div>
             <div class="column column-tiny ml-2">
                 <button @click="createThread">New Thread</button>

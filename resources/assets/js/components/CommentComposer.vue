@@ -2,7 +2,7 @@
     <div>
         <div class="row mt-2">
             <div class="column">
-                <input v-model="message" />
+                <input v-model="message" @keyup.enter="send" />
             </div>
             <div class="column column-tiny ml-2">
                 <button @click="send">New Comment</button>
