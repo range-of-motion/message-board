@@ -10,7 +10,7 @@
     <body>
         <div id="app" class="wrapper">
             <thread-composer></thread-composer>
-            <threads v-bind:data='{!! $threads !!}'></threads>
+            <threads v-bind:data='{!! htmlspecialchars($threads, ENT_QUOTES) !!}'></threads>
         </div>
         <script src="/js/app.js"></script>
     </body>
