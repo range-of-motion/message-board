@@ -27,7 +27,7 @@
             window.Echo.channel('threads').listen('CommentCreated', (e) => {
                 this.threads.forEach(thread => {
                     if (thread.id == e.thread) {
-                        thread.comments.unshift({
+                        thread.comments.push({
                             created_at: moment(e.created_at.date).format('YYYY-MM-DD HH:mm:ss'),
                             message: e.message
                         });
