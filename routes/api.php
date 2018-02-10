@@ -56,7 +56,7 @@ Route::post('/comments', function (Request $request) {
 
     $ip = $request->ip();
 
-    if (\App\Comment::where('ip', $ip)->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute')))->count() > 0) {
+    if (\App\Comment::where('ip', $ip)->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-10 seconds')))->count() > 0) {
         return response()->json([], 429);
     }
 

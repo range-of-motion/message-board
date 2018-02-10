@@ -18,7 +18,7 @@
             window.Echo.channel('threads').listen('ThreadCreated', (e) => {
                 this.threads.unshift({
                     id: e.id,
-                    created_at: e.created_at.date,
+                    created_at: moment(e.created_at.date).format('YYYY-MM-DD HH:mm:ss'),
                     title: e.title,
                     comments: []
                 })
@@ -28,7 +28,7 @@
                 this.threads.forEach(thread => {
                     if (thread.id == e.thread) {
                         thread.comments.unshift({
-                            created_at: e.created_at.date,
+                            created_at: moment(e.created_at.date).format('YYYY-MM-DD HH:mm:ss'),
                             message: e.message
                         });
                     }
