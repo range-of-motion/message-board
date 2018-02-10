@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://i.imgur.com/yO8vkP1.png" />
+    <img src="https://i.imgur.com/Em3PB7B.png" />
 </p>
 
 # Message Board
