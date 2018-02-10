@@ -68,6 +68,11 @@ button:hover {
     cursor: pointer;
 }
 
+button.wide {
+    background: #23272B;
+    width: 100%;
+}
+
 ul.threads {
     list-style: none;
 }
