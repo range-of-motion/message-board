@@ -8,13 +8,15 @@ window.axios.defaults.headers.common = {
     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 };
 
+window.pusherKey = document.querySelector('meta[name="pusher-key"]').getAttribute('content');
+
 import Echo from 'laravel-echo';
 
 window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: '6a1dde516a953d4d611d',
+    key: pusherKey,
     cluster: 'eu',
     encrypted: true
 });
