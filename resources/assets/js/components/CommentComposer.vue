@@ -5,7 +5,10 @@
                 <input v-model="message" @keyup.enter="send" />
             </div>
             <div class="column column-tiny ml-2">
-                <button @click="send">New Comment</button>
+                <button @click="send" class="w-160">
+                    <span v-if="!loading">New Comment</span>
+                    <i v-if="loading" class="fa fa-circle-o-notch fa-spin"></i>
+                </button>
             </div>
         </div>
         <div class="mt-2" v-if="error">
@@ -21,12 +24,15 @@
         data() {
             return {
                 message: '',
-                error: false
+                error: false,
+                loading: false
             }
         },
 
         methods: {
             send: function () {
+                this.loading = true
+
                 axios.post('/api/comments', {
                     thread: this.thread,
                     message: this.message
@@ -34,8 +40,12 @@
                     this.message = ''
 
                     this.error = false
+
+                    this.loading = false
                 }).catch(error => {
                     this.error = true
+
+                    this.loading = false
                 })
             }
         }

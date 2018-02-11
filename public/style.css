@@ -64,6 +64,14 @@ button {
     border: none;
 }
 
+button.w-144 {
+    width: 144px;
+}
+
+button.w-160 {
+    width: 160px;
+}
+
 button:hover {
     cursor: pointer;
 }

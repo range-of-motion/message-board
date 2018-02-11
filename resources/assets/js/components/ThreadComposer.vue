@@ -5,8 +5,10 @@
                 <input v-model="title" @keyup.enter="createThread" />
             </div>
             <div class="column column-tiny ml-2">
-                <button @click="createThread">New Thread</button>
-                <i v-if="loading" class="fa fa-circle-o-notch fa-spin" style="margin-left: 4px;"></i>
+                <button @click="createThread" class="w-144">
+                    <span v-if="!loading">New Thread</span>
+                    <i v-if="loading" class="fa fa-circle-o-notch fa-spin"></i>
+                </button>
             </div>
         </div>
         <div class="mb-2" v-if="error">
