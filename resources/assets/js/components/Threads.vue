@@ -1,6 +1,6 @@
 <template>
     <ul class="threads">
-        <thread v-for="thread in threads" v-bind:thread="thread"></thread>
+        <thread v-for="thread in threads" v-bind:thread="thread" :key="thread.id"></thread>
     </ul>
 </template>
 
