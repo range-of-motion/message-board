@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="mb-2" v-if="error">
-            <div class="error">Something went wrong</div>
+            <div class="error">{{ error }}</div>
         </div>
     </div>
 </template>
@@ -42,7 +42,11 @@
                 }).catch(error => {
                     this.loading = false
 
-                    this.error = true
+                    if (error.response.status == 429) {
+                        this.error = 'You can create a new thread every 60 seconds, please wait'
+                    } else {
+                        this.error = 'Something went wrong, you probably forgot something'
+                    }
                 })
             }
         }

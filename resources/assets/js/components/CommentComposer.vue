@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="mt-2" v-if="error">
-            <div class="error">Something went wrong</div>
+            <div class="error">{{ error }}</div>
         </div>
     </div>
 </template>
@@ -43,7 +43,11 @@
 
                     this.loading = false
                 }).catch(error => {
-                    this.error = true
+                    if (error.response.status == 429) {
+                        this.error = 'You can comment every 10 seconds, please wait'
+                    } else {
+                        this.error = 'Something went wrong, you probably forgot something'
+                    }
 
                     this.loading = false
                 })
