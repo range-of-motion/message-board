@@ -24,6 +24,14 @@
                 })
             })
 
+            window.Echo.channel('threads').listen('ThreadDeleted', (e) => {
+                for (var key in this.threads) {
+                    if (this.threads[key].id == e.id) {
+                        this.threads.splice(key, 1)
+                    }
+                }
+            })
+
             window.Echo.channel('threads').listen('CommentCreated', (e) => {
                 this.threads.forEach(thread => {
                     if (thread.id == e.thread) {
