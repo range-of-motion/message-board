@@ -12,7 +12,7 @@ Oh gee, another real-time message board.
 * Cooldown system based on IP (default is 10 seconds for a comment and 60 seconds for a thread)
 * It's real-time (we're here, we're live)
 
-### To Do
+#### To Do
 
 * Rating threads/comments by giving an up or down-vote (also based on IP to prevent duplicate-votes)
 * Ability to start a vote on whether or not a specific thread/comment should be removed (truly democratic; power to the people)
