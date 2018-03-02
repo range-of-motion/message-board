@@ -68,7 +68,7 @@ Route::post('/comments', function (Request $request) {
 
     $comment->save();
 
-    event(new \App\Events\CommentCreated($comment->thread->id, $comment->created_at, $comment->message));
+    event(new \App\Events\CommentCreated($comment->thread->id, $comment->id, $comment->created_at, $comment->message));
 
     return 1;
 });

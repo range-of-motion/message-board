@@ -36,11 +36,22 @@
                 this.threads.forEach(thread => {
                     if (thread.id == e.thread) {
                         thread.comments.push({
+                            id: e.id,
                             created_at: moment(e.created_at.date).format('YYYY-MM-DD HH:mm:ss'),
                             message: e.message
                         });
                     }
                 })
+            })
+
+            window.Echo.channel('threads').listen('CommentDeleted', (e) => {
+                for (var x in this.threads) {
+                    for (var y in this.threads[x].comments) {
+                        if (this.threads[x].comments[y].id == e.id) {
+                            this.threads[x].comments.splice(y, 1)
+                        }
+                    }
+                }
             })
         }
     }

@@ -10,19 +10,13 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class CommentCreated implements ShouldBroadcast {
+class CommentDeleted implements ShouldBroadcast {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $thread;
     public $id;
-    public $created_at;
-    public $message;
 
-    public function __construct($thread, $id, $created_at, $message) {
-        $this->thread = $thread;
+    public function __construct($id) {
         $this->id = $id;
-        $this->created_at = $created_at;
-        $this->message = $message;
     }
 
     public function broadcastOn() {
