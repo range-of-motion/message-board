@@ -19,6 +19,7 @@
                 this.threads.unshift({
                     id: e.id,
                     created_at: moment(e.created_at.date).format('YYYY-MM-DD HH:mm:ss'),
+                    vote_count: 0,
                     title: e.title,
                     comments: []
                 })

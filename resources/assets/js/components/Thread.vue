@@ -1,6 +1,6 @@
 <template>
     <li>
-        <div>{{ thread.created_at }} &middot; {{ thread.title }}</div>
+        <div>{{ thread.created_at }} &middot; {{ thread.vote_count }} &middot; {{ thread.title }}</div>
         <div class="mt-2" v-if="collapsedComments && thread.comments.length > 3">
             <button class="wide" @click="toggleCollapse">Show {{ thread.comments.length - 3 }} more</button>
         </div>
