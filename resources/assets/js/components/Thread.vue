@@ -9,7 +9,7 @@
             <button class="wide" @click="toggleCollapse">Hide {{ thread.comments.length - 3 }} again</button>
         </div>
         <ul class="comments">
-            <li v-for="(comment, index) in thread.comments" v-if="!collapsedComments || index >= thread.comments.length - 3">{{ comment.created_at }} &middot; {{ comment.message }}</li>
+            <comment v-for="(comment, index) in thread.comments" v-if="!collapsedComments || index >= thread.comments.length - 3" :comment="comment"></comment>
         </ul>
         <comment-composer v-bind:thread="thread.id"></comment-composer>
     </li>
