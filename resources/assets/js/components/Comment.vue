@@ -1,6 +1,6 @@
 <template>
     <li>
-        <div>{{ blyat }} &middot; VOTE_COUNT_PLACEHOLDER</div>
+        <div>{{ blyat }} &middot; {{ comment.vote_count }}</div>
         <div style="margin-top: 24px;">{{ comment.message }}</div>
     </li>
 </template>
