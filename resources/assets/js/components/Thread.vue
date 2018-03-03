@@ -1,6 +1,7 @@
 <template>
     <li>
-        <div>{{ thread.created_at }} &middot; {{ thread.vote_count }} &middot; {{ thread.title }}</div>
+        <div>{{ blyat }} &middot; {{ thread.vote_count }}</div>
+        <div style="margin-top: 24px;">{{ thread.title }}</div>
         <div class="mt-2" v-if="collapsedComments && thread.comments.length > 3">
             <button class="wide" @click="toggleCollapse">Show {{ thread.comments.length - 3 }} more</button>
         </div>
@@ -21,6 +22,12 @@
         data() {
             return {
                 collapsedComments: true
+            }
+        },
+
+        computed: {
+            blyat: function () {
+                return moment(this.thread.created_at).format('DD-MM HH:mm')
             }
         },
 

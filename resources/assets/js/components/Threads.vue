@@ -18,7 +18,7 @@
             window.Echo.channel('threads').listen('ThreadCreated', (e) => {
                 this.threads.unshift({
                     id: e.id,
-                    created_at: moment(e.created_at.date).format('YYYY-MM-DD HH:mm:ss'),
+                    created_at: moment(e.created_at.date).format('DD-MM HH:mm'),
                     vote_count: 0,
                     title: e.title,
                     comments: []
