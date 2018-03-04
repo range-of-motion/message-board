@@ -94,5 +94,7 @@ Route::post('/votes', function (Request $request) {
 
     $vote->save();
 
+    event(new \App\Events\VoteCountUpdated($target_id, $target_type, $vote->voteable->vote_count));
+
     return 1;
 });

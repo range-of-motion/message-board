@@ -54,6 +54,20 @@
                     }
                 }
             })
+
+            window.Echo.channel('threads').listen('VoteCountUpdated', (e) => {
+                if (e.target_type == 'thread') {
+                    for (var x in this.threads) {
+                        var thread = this.threads[x]
+
+                        if (thread.id == e.target_id) {
+                            thread.vote_count = e.vote_count
+                        }
+                    }
+                }
+
+                // Or if target_type is comment
+            })
         }
     }
 </script>
