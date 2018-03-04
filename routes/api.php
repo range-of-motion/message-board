@@ -72,3 +72,27 @@ Route::post('/comments', function (Request $request) {
 
     return 1;
 });
+
+Route::post('/votes', function (Request $request) {
+    // VALIDATE
+
+    $ip = $request->ip();
+    $target_id = $request->post('target_id');
+    $target_type = $request->post('target_type');
+    $type = $request->post('type');
+
+    if (\App\Vote::where('ip', $ip)->where('voteable_id', $target_id)->where('voteable_type', 'App\\' . ucfirst($target_type))->count() > 0) {
+        return response()->json([], 429);
+    }
+
+    $vote = new \App\Vote;
+
+    $vote->ip = $ip;
+    $vote->voteable_id = $target_id;
+    $vote->voteable_type = 'App\\' . ucfirst($target_type);
+    $vote->type = $type;
+
+    $vote->save();
+
+    return 1;
+});

@@ -81,6 +81,11 @@ button.wide {
     width: 100%;
 }
 
+button.small {
+    padding: 4px;
+    width: 48px;
+}
+
 ul.threads {
     list-style: none;
 }
