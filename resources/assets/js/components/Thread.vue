@@ -1,7 +1,20 @@
 <template>
     <li>
-        <div>{{ blyat }} &middot; <button class="small" @click="vote(1)"><i class="fa fa-arrow-up"></i></button> {{ thread.vote_count }} <button class="small" @click="vote(0)"><i class="fa fa-arrow-down"></i></button></div>
-        <div style="margin-top: 24px;">{{ thread.title }}</div>
+        <div class="row">
+            <div class="column">
+                <div>{{ blyat }}</div>
+                <div style="margin-top: 24px;">{{ thread.title }}</div>
+            </div>
+            <div class="column column-tiny text-align-center">
+                <button class="small" @click="vote(1)">
+                    <i class="fa fa-arrow-up"></i>
+                </button>
+                <div style="margin-top: 8px; margin-bottom: 8px;">{{ thread.vote_count }}</div>
+                <button class="small" @click="vote(0)">
+                    <i class="fa fa-arrow-down"></i>
+                </button>
+            </div>
+        </div>
         <div class="mt-2" v-if="collapsedComments && thread.comments.length > 3">
             <button class="wide" @click="toggleCollapse">Show {{ thread.comments.length - 3 }} more</button>
         </div>

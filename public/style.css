@@ -10,6 +10,14 @@ body {
     background: #23272B;
 }
 
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
 .row {
     display: flex;
 }
@@ -82,8 +90,8 @@ button.wide {
 }
 
 button.small {
-    padding: 4px;
-    width: 48px;
+    background: none;
+    padding: 0;
 }
 
 ul.threads {
