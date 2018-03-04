@@ -10,6 +10,16 @@ body {
     background: #23272B;
 }
 
+.vote_count {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 48px;
+    background: #23272B;
+    border-radius: 4px;
+}
+
 .text-align-right {
     text-align: right;
 }

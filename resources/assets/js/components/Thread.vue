@@ -9,7 +9,7 @@
                 <button class="small" @click="vote(1)">
                     <i class="fa fa-arrow-up"></i>
                 </button>
-                <div style="margin-top: 8px; margin-bottom: 8px;">{{ thread.vote_count }}</div>
+                <div class="vote_count">{{ thread.vote_count }}</div>
                 <button class="small" @click="vote(0)">
                     <i class="fa fa-arrow-down"></i>
                 </button>
