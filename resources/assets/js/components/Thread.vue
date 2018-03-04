@@ -1,6 +1,6 @@
 <template>
     <li>
-        <div>{{ blyat }} &middot; <button class="small" @click="vote(1)">U</button> {{ thread.vote_count }} <button class="small" @click="vote(0)">D</button></div>
+        <div>{{ blyat }} &middot; <button class="small" @click="vote(1)"><i class="fa fa-arrow-up"></i></button> {{ thread.vote_count }} <button class="small" @click="vote(0)"><i class="fa fa-arrow-down"></i></button></div>
         <div style="margin-top: 24px;">{{ thread.title }}</div>
         <div class="mt-2" v-if="collapsedComments && thread.comments.length > 3">
             <button class="wide" @click="toggleCollapse">Show {{ thread.comments.length - 3 }} more</button>
@@ -46,7 +46,7 @@
                 }).then(function (response) {
                     console.log(response)
                 }).catch(function (error) {
-                    console.log(error)
+                    //
                 })
             }
         }
