@@ -16,9 +16,10 @@
 
         created() {
             window.Echo.channel('threads').listen('ThreadCreated', (e) => {
+                console.log(e.created_at)
                 this.threads.unshift({
                     id: e.id,
-                    created_at: moment(e.created_at.date).format('DD-MM HH:mm'),
+                    created_at: moment(e.created_at.date).format('YYYY-MM-DD HH:mm:ss'),
                     vote_count: 0,
                     title: e.title,
                     comments: []
