@@ -57,7 +57,7 @@
                     target_type: 'thread',
                     type: type
                 }).then(function (response) {
-                    console.log(response)
+                    //
                 }).catch(function (error) {
                     //
                 })
