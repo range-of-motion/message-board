@@ -66,9 +66,19 @@
                             thread.vote_count = e.vote_count
                         }
                     }
-                }
+                } else if (e.target_type == 'comment') {
+                    for (var x in this.threads) {
+                        var thread = this.threads[x]
 
-                // Or if target_type is comment
+                        for (var y in thread.comments) {
+                            var comment = thread.comments[y];
+
+                            if (comment.id == e.target_id) {
+                                comment.vote_count = e.vote_count
+                            }
+                        }
+                    }
+                }
             })
         }
     }
