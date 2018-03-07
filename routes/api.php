@@ -17,32 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/threads', function (Request $request) {
-    $validator = Validator::make($request->all(), [
-        'title' => 'required|max:255'
-    ]);
-
-    if ($validator->fails()) {
-        return response()->json([], 400);
-    }
-
-    $ip = $request->ip();
-
-    if (\App\Thread::where('ip', $ip)->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 minute')))->count() > 0) {
-        return response()->json([], 429);
-    }
-
-    $thread = new \App\Thread;
-
-    $thread->ip = $ip;
-    $thread->title = $request->post('title');
-
-    $thread->save();
-
-    event(new \App\Events\ThreadCreated($thread->id, $thread->created_at, $thread->title));
-
-    return 1;
-});
+Route::post('/threads', 'API\ThreadsController@store');
 
 Route::post('/comments', function (Request $request) {
     $validator = Validator::make($request->all(), [
